@@ -1,6 +1,6 @@
 # Manajemen Persuratan HKI & Publikasi
 
-![preview](/public/Video20%Project20%11.gif)
+![preview](/public/Video%20Project%2011.gif)
 
 ## About
 
