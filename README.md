@@ -1,66 +1,357 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Manajemen Persuratan HKI & Publikasi
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![preview](/public/Video20%Project20%11.gif)
 
-## About Laravel
+## About
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Manajemen Persuratan HKI & Publikasi** is a web-based application designed to manage Intellectual Property Rights (HKI) and publication submissions within the Informatics Study Program.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The application provides two main user roles:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* **Student** — The default role assigned when a new user registers. Students can submit HKI and publication applications and monitor the progress of their submissions.
+* **Admin** — Has access to administrative features, including reviewing and approving student submissions, managing lecturers, managing announcements, and changing user roles to **Admin** or **Lecturer**.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* User login and registration
+* Dashboard
+* Announcement management
+* Lecturer management (add, edit, and delete)
+* User role management
+* HKI and publication submission approval
+* HKI submission
+* Publication submission
+* Submission progress tracking
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Tech Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Laravel** — Backend framework
+* **PHP** — Programming language
+* **Tailwind CSS** — Frontend styling framework
+* **MySQL** — Database management system
+* **JavaScript** — Client-side functionality
+* **Vite** — Frontend asset bundling
 
-## Laravel Sponsors
+# Installation Guide
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The project can be installed without an existing database. Since the project already contains **Laravel migrations and seeders**, you only need to create an empty MySQL database. Laravel will automatically create the required tables and insert the initial data using the migration and seeder files.
 
-### Premium Partners
+## 1. Prerequisites
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Install the following software before setting up the project:
 
-## Contributing
+* PHP **8.2 or later**
+* Composer
+* MySQL
+* Node.js and npm
+* Git (optional, if cloning the repository)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+The project uses **Laravel 11.9+**, which requires PHP 8.2 or later.
 
-## Code of Conduct
+If you are using XAMPP:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```text
+Apache → Not required
+MySQL  → Required
+```
 
-## Security Vulnerabilities
+Apache is not required because Laravel can be run using the built-in development server with `php artisan serve`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 2. Clone or Copy the Project
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+If you are using Git:
+
+```powershell
+git clone <repository-url>
+cd manajemen-persuratan-hki
+```
+
+Alternatively, extract the project ZIP file and open a terminal in the project directory.
+
+Make sure the project contains files and directories such as:
+
+```text
+app/
+bootstrap/
+config/
+database/
+public/
+resources/
+routes/
+storage/
+composer.json
+composer.lock
+package.json
+package-lock.json
+.env.example
+```
+
+---
+
+## 3. Install PHP Dependencies
+
+Run:
+
+```powershell
+composer install
+```
+
+This installs the PHP dependencies specified in `composer.lock` and creates the `vendor/` directory.
+
+It is recommended to use `composer install` rather than `composer update` when setting up an existing project because `composer update` may change the dependency versions.
+
+---
+
+## 4. Create the `.env` File
+
+Create the environment configuration file from `.env.example`:
+
+```powershell
+copy .env.example .env
+```
+
+Then open:
+
+```text
+.env
+```
+
+---
+
+## 5. Create an Empty MySQL Database
+
+Make sure MySQL is running.
+
+If you are using XAMPP:
+
+```text
+XAMPP → MySQL → Start
+```
+
+Create an empty database named:
+
+```text
+db_pkl
+```
+
+The database does **not** need to contain any tables.
+
+The initial database structure should look like:
+
+```text
+MySQL
+└── db_pkl
+    └── empty
+```
+
+### Using phpMyAdmin
+
+Open phpMyAdmin using the appropriate URL for your local environment.
+
+Select **New → Create database** and create:
+
+```text
+db_pkl
+```
+
+---
+
+## 6. Configure the Database
+
+Open the `.env` file and configure the database connection:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_pkl
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Adjust the username, password, and port according to your MySQL configuration.
+
+> `DB_PORT=3306` refers to the **MySQL port**, not the Apache port.
+
+---
+
+## 7. Generate the Application Key
+
+Run:
+
+```powershell
+php artisan key:generate
+```
+
+If successful, Laravel will display:
+
+```text
+INFO  Application key set successfully.
+```
+
+---
+
+## 8. Clear the Laravel Cache
+
+Run:
+
+```powershell
+php artisan optimize:clear
+```
+
+This clears Laravel's cached configuration, routes, views, and other cached files.
+
+---
+
+## 9. Create the Database Tables and Insert Initial Data
+
+Because the project does not require an existing database, Laravel can create the database structure using the migration files located in:
+
+```text
+database/migrations/
+```
+
+The simplest approach is:
+
+```powershell
+php artisan migrate --seed
+```
+
+This command performs two operations:
+
+```text
+Migration
+    ↓
+Create database tables
+    ↓
+Seeder
+    ↓
+Insert initial data
+```
+
+The project includes seeders such as:
+
+```text
+database/seeders/
+├── DatabaseSeeder.php
+├── DosenSeeder.php
+└── UsersTableSeeder.php
+```
+
+Therefore, `php artisan migrate --seed` is recommended when installing the project from an empty database.
+
+---
+
+## 10. Install Frontend Dependencies
+
+Run:
+
+```powershell
+npm install
+```
+
+This installs the JavaScript dependencies specified in `package.json` and creates:
+
+```text
+node_modules/
+```
+
+---
+
+## 11. Build the Frontend Assets
+
+Run:
+
+```powershell
+npm run build
+```
+
+After the build process is completed, Laravel should have:
+
+```text
+public/
+└── build/
+    ├── manifest.json
+    └── assets/
+```
+
+This step is important because Laravel requires the Vite manifest when loading compiled frontend assets.
+
+If `public/build/manifest.json` does not exist, Laravel may display an error such as:
+
+```text
+Illuminate\Foundation\ViteManifestNotFoundException
+Vite manifest not found
+```
+
+---
+
+## 12. Run the Application
+
+Start the Laravel development server:
+
+```powershell
+php artisan serve
+```
+
+The application will normally be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+Open the address in a web browser.
+
+Since the frontend assets have already been compiled using:
+
+```powershell
+npm run build
+```
+
+you do not need to run `npm run dev` for this setup.
+
+# Complete Installation Sequence
+
+For a fresh installation, the following commands can be used in order:
+
+```powershell
+# 1. Enter the project directory
+cd manajemen-persuratan-hki
+
+# 2. Install PHP dependencies
+composer install
+
+# 3. Create the environment file
+copy .env.example .env
+
+# 4. Create an empty MySQL database named db_pkl
+#    Then configure the DB_* values in .env
+
+# 5. Generate the application key
+php artisan key:generate
+
+# 6. Clear Laravel cache
+php artisan optimize:clear
+
+# 7. Create database tables and insert initial data
+php artisan migrate --seed
+
+# 8. Install frontend dependencies
+npm install
+
+# 9. Build frontend assets
+npm run build
+
+# 10. Start the Laravel application
+php artisan serve
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
+The application should now be ready to use.
