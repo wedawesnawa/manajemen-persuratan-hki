@@ -64,7 +64,7 @@ Apache is not required because Laravel can be run using the built-in development
 If you are using Git:
 
 ```powershell
-git clone <repository-url>
+git clone https://github.com/wedawesnawa/manajemen-persuratan-hki.git
 cd manajemen-persuratan-hki
 ```
 
